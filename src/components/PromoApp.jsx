@@ -4,7 +4,7 @@ const PromoApp = () => {
         <div className="container-fluid classname= bg-warning my=3">
             <div className="container">
                 <div className="row ">
-                    <div className="col-md-6">
+                    <div className="col-md-9">
                         <div className="row">
                             <div className="col-md-2">
                                 <img src={logoRojo} width={70}></img>
@@ -16,8 +16,8 @@ const PromoApp = () => {
                         </div>
 
                     </div>
-                    <div className="col-md-6 d-flex align-items-center text-end" >
-                        <button type="button" class="btn btn-light text-end">Descargar Ahora</button>
+                    <div className="col-md-3 d-flex align-items-center" >
+                        <button type="button" class="btn btn-light">Descargar Ahora</button>
                     </div>
                 </div>
             </div>
