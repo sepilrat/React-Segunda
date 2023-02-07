@@ -1,3 +1,4 @@
+import CardWidget from "./CardWidget";
 import logo from "./images/mcdonalds-logo-footer-bg-white.png"
 
 const NavBar = () => {
@@ -14,15 +15,17 @@ const NavBar = () => {
                             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                                 <div className="navbar-nav">
                                     <a className="nav-link active" aria-current="page" href="#">Productos</a>
-                                    <a className="nav-link" href="#">Locales</a>
-                                    <a className="nav-link" href="#">En Familia</a>
-                                    <a className="nav-link" href="#">Nosotros</a>
+                                    <a className="nav-link" href="/locales">Locales</a>
+                                    <a className="nav-link" href="enFamilia">En Familia</a>
+                                    <a className="nav-link" href="nosotros">Nosotros</a>
 
                                 </div>
                             </div>
                         </div>
+                        <div><CardWidget/></div>
                     </nav>
                 </div>
+                
             </div>
         </div>
     )
