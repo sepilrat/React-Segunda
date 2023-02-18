@@ -1,6 +1,7 @@
 import CardWidget from "./CardWidget";
 import logo from "./images/mcdonalds-logo-footer-bg-white.png"
 
+
 const NavBar = () => {
     return (
         <div className="container">
@@ -21,11 +22,12 @@ const NavBar = () => {
 
                                 </div>
                             </div>
+                            <div><CardWidget /></div>
                         </div>
-                        <div><CardWidget/></div>
+                        
                     </nav>
                 </div>
-                
+
             </div>
         </div>
     )

@@ -6,8 +6,8 @@ const PromoApp = () => {
                 <div className="row ">
                     <div className="col-md-9">
                         <div className="row">
-                            <div className="col-md-2">
-                                <img src={logoRojo} width={70}></img>
+                            <div className="col-md-2 d-flex align-items-center">
+                                <img  src={logoRojo} width={70}></img>
                             </div>
                             <div className="col-md-10">
                                 <h1>Descárgate nuestra app</h1>
