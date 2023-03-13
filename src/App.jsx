@@ -5,10 +5,13 @@ import NavBar from "./components/NavBar";
 import PromoApp from "./components/PromoApp";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Error404 from "./components/Error404";
+import CartContextProvider from "./components/CartContext";
+import Cart from "./components/cart";
 
 
 function App() {
   return (
+    <CartContextProvider>
     <BrowserRouter>
     <div>
       <NavBar />
@@ -17,13 +20,13 @@ function App() {
         <Route path={"/"} element={<ItemsListContainer/>}/>
         <Route path={"/category/:id"} element={<ItemsListContainer/>}/>
         <Route path={"/item/:id"} element={<ItemDetailContainer/>}/>
+        <Route path={"/Cart"} element={<Cart/>}/>
         <Route path={"*"} element={<Error404/>}/>
       </Routes>
-     
-      
-       <PromoApp/>
+        <PromoApp/>
     </div>
     </BrowserRouter>
+    </CartContextProvider>
   );
 }
 
