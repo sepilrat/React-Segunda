@@ -9,7 +9,9 @@ const ItemDetail = ({ item }) => {
     addItem(item,quantity)
 
     }
+   
     return (
+       
         <div className="Container ">
             <div className="row mt-5">
                 <div className="col text-center">
@@ -29,6 +31,7 @@ const ItemDetail = ({ item }) => {
         </div>
 
     )
+   
 }
 
 export default ItemDetail;

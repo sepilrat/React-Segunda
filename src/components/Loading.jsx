@@ -1,9 +1,8 @@
-const Loading =()=>
-{
-    return(
+const Loading = () => {
+    return (
         <div className="container">
-            <div className="col-md-12">
-                <h5>Loading...</h5>
+            <div className="spinner-border text-warning text-end" role="status">
+                <span class="visually-hidden">Loading...</span>
             </div>
         </div>
     )

@@ -20,7 +20,7 @@ const Cart = () => {
         const orderCollection = collection(db, "orders");
         addDoc(orderCollection, order).then(data => {
             setOrderId(data.id);
-            console.log(data.id)
+           
             //clear();
         }
 

@@ -4,10 +4,12 @@ import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
 import arrayProductos from "./json/productos.json";
 import { getFirestore, collection, addDoc, getDocs, query, where } from "firebase/firestore";
+import Loading from "./Loading";
 
 const ItemsListContainer = (prop) => {
     const [items, setItems] = useState([]);
     const { id } = useParams();  //para que tome los parámetros por url
+    const [loading, setLoading] = useState(true);
     //Efecto que se utiliza solo una vez para subir a firebase el array de productos
     // useEffect(() => {   
     //     const db = getFirestore();
@@ -37,14 +39,15 @@ const ItemsListContainer = (prop) => {
         const filter = id ? query(itemsCollection, where("categoria","==",id)) : itemsCollection;
         getDocs(filter).then(elements=>{
             setItems(elements.docs.map(element =>({id:element.id, ...element.data()})));
+            setLoading(false);
         });
     },[id]);
 
     return (
            
         <div className="container my-5">
-
-            <ItemList items={items} />
+ 
+            {loading ? <Loading/> : <ItemList items={items} />}
 
         </div>
 
