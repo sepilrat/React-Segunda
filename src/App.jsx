@@ -15,7 +15,7 @@ function App() {
     <BrowserRouter>
     <div>
       <NavBar />
-      <Destacado />
+      {/* <Destacado /> */}
       <Routes>
         <Route path={"/"} element={<ItemsListContainer/>}/>
         <Route path={"/category/:id"} element={<ItemsListContainer/>}/>

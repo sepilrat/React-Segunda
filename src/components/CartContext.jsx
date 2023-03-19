@@ -1,14 +1,14 @@
 import { createContext, useState } from "react";
+import { useContext } from "react";
+export const useCartContext  =()=> useContext();
 // esto se usa para que todos los componentes que este envueltos por este contexto puedan acceder a las propiedades
 export const CartContext = createContext();
 
-const CartContextProvider = (children)=> {
+const CartContextProvider = ({children})=> {
     const [cart, setCart] = useState([]);
     const addItem = (item, quantity) =>
     {
-        alert();
-        console.log(cart);
-        console.log("d:  " , ...cart)
+        
         if (isInCart(item.index))
         {
 
@@ -38,13 +38,13 @@ const CartContextProvider = (children)=> {
     }
 
     const cartSum =() =>{
-        return cart.reduce((accum,item) => accum += item.quantity * item.price, 0);
+        return cart.reduce((accum,item) => accum += item.quantity * item.precio, 0);
     }
-
+//las funciones que quiero que esten disponibls en el contexto
     return(
-        <CartContextProvider.Provider value ={{cart, addItem,removeItem,clear, cartTotal, cartSum}}> //las funciones que quiero que esten disponibls en el contexto
+        <CartContext.Provider value ={{cart, addItem,removeItem,clear, cartTotal, cartSum}}> 
         {children}
-        </CartContextProvider.Provider>
+        </CartContext.Provider>
 
     )
 }
