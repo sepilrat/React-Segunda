@@ -6,6 +6,7 @@ import arrayProductos from "./json/productos.json";
 import { getFirestore, collection, addDoc, getDocs, query, where } from "firebase/firestore";
 import Loading from "./Loading";
 
+
 const ItemsListContainer = (prop) => {
     const [items, setItems] = useState([]);
     const { id } = useParams();  //para que tome los parámetros por url
@@ -46,7 +47,7 @@ const ItemsListContainer = (prop) => {
     return (
            
         <div className="container my-5">
- 
+          
             {loading ? <Loading/> : <ItemList items={items} />}
 
         </div>

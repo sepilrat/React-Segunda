@@ -1,7 +1,7 @@
 import { CartContext } from "./CartContext";
 import { useContext, useState } from "react";
 //import Item from "./Item";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { addDoc, collection, getFirestore } from "firebase/firestore";
 
 const Cart = () => {
@@ -20,17 +20,20 @@ const Cart = () => {
         const orderCollection = collection(db, "orders");
         addDoc(orderCollection, order).then(data => {
             setOrderId(data.id);
-           
-            //clear();
-        }
+            clear();
+            }
 
         );
 
     }
 
     if (cartTotal() === 0) {
+        
         return (
-            <div className="alert alert-warning text-center">No se encontraron productos en el carrito</div>
+            <div className="alert alert-warning text-center">No se encontraron productos en el carrito
+             {orderId ? <Navigate to={"/ThankYou/" + orderId} /> : ""}
+            </div>
+           
         )
     }
     return (
@@ -51,7 +54,7 @@ const Cart = () => {
                             <label htmlFor="nombre" className="form-label">Telefono</label>
                             <input type="text" className="form-control" id="telefono" onInput={(e) => { setTelefono(e.target.value) }} />
                         </div>
-                        <button type="button" className="btn btn-primary" onClick={generarOrden}>Generar Orden</button>
+                        <button type="button" className="btn btn-warning" onClick={generarOrden}>Generar Orden</button>
                     </form>
 
 
@@ -83,15 +86,10 @@ const Cart = () => {
                     </table>
                 </div>
             </div>
-            <div className="row">
-                <div className="col-md-12">
-                    {orderId ? <div className="alert alert-warning bg-warning" role="alert"><h3>Gracias por tu compra</h3>
-                        Se generó una nueva compra con el número de orden {orderId}  </div> : "..."
-                    }
-                    
-                </div>
-            </div>
+            
+                       
         </div>
+   
     )
 }
 export default Cart;
